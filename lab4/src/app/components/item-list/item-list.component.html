@@ -1,0 +1,72 @@
+@if (counts$ | async; as counts) {
+    <div class="filter-bar">
+        <button
+            type="button"
+            [class.active]="filter === 'all'"
+            (click)="setFilter('all')"
+        >Toate ({{ counts.all }})</button>
+        <button
+            type="button"
+            [class.active]="filter === 'pending'"
+            (click)="setFilter('pending')"
+        >De cumparat ({{ counts.pending }})</button>
+        <button
+            type="button"
+            [class.active]="filter === 'bought'"
+            (click)="setFilter('bought')"
+        >Cumparate ({{ counts.bought }})</button>
+
+        @if (counts.bought > 0) {
+            <button
+                type="button"
+                class="clear"
+                (click)="clearBought()"
+            >Sterge cumparate</button>
+        }
+    </div>
+}
+
+@if (items$ | async; as items) {
+    @if (items.length === 0) {
+        <p class="empty">
+            @if (filter === 'all') {
+                Lista este goala. Adauga primul articol din formularul de mai sus.
+            } @else if (filter === 'pending') {
+                Nu exista articole de cumparat. Bravo!
+            } @else {
+                Nu exista articole cumparate.
+            }
+        </p>
+    } @else {
+        <ul class="items">
+            @for (item of items; track item.id) {
+                <li class="item" [class.bought]="item.bought">
+                    <input
+                        type="checkbox"
+                        [checked]="item.bought"
+                        (change)="toggle(item)"
+                        title="Marcheaza cumparat / necumparat"
+                    >
+
+                    @if (editingId === item.id) {
+                        <input
+                            type="text"
+                            class="edit-input"
+                            [(ngModel)]="editName"
+                            (keyup.enter)="saveEdit(item)"
+                            (keyup.escape)="cancelEdit()"
+                            autofocus
+                        >
+                        <button type="button" class="save" (click)="saveEdit(item)">Salveaza</button>
+                        <button type="button" class="cancel" (click)="cancelEdit()">Anuleaza</button>
+                    } @else {
+                        <span class="name">{{ item.name }}</span>
+                        <span class="qty">{{ item.quantity }} {{ item.unit }}</span>
+                        <button type="button" class="edit" (click)="startEdit(item)">Editeaza</button>
+                        <button type="button" class="delete" (click)="delete(item)">Sterge</button>
+                    }
+                </li>
+            }
+        </ul>
+    }
+}

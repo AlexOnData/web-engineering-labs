@@ -1,0 +1,37 @@
+.app-header {
+    background: #2c5282;
+    color: #fff;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.app-header .subtitle {
+    margin: .25rem 0 0;
+    opacity: .85;
+    font-size: .9rem;
+}
+
+.container {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 1rem;
+    color: #718096;
+    font-size: .85rem;
+}
+
+.app-footer code {
+    background: #edf2f7;
+    padding: .1rem .35rem;
+    border-radius: 3px;
+    font-size: .85rem;
+}

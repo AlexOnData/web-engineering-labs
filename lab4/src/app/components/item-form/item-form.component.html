@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="item-form">
+    <h2>Adauga articol</h2>
+
+    <div class="field">
+        <label>
+            Nume articol
+            <input
+                type="text"
+                formControlName="name"
+                placeholder="Lapte, paine, mere&hellip;"
+                maxlength="80"
+                autocomplete="off"
+            >
+        </label>
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+            <p class="error">
+                @if (form.controls.name.hasError('required')) {
+                    Numele este obligatoriu.
+                } @else if (form.controls.name.hasError('maxlength')) {
+                    Numele este prea lung (maxim 80 caractere).
+                }
+            </p>
+        }
+    </div>
+
+    <div class="row">
+        <div class="field">
+            <label>
+                Cantitate
+                <input
+                    type="number"
+                    formControlName="quantity"
+                    min="0.01"
+                    step="0.01"
+                >
+            </label>
+            @if (form.controls.quantity.touched && form.controls.quantity.invalid) {
+                <p class="error">Cantitatea trebuie sa fie un numar pozitiv.</p>
+            }
+        </div>
+
+        <div class="field">
+            <label>
+                Unitate
+                <select formControlName="unit">
+                    <option value="buc">buc</option>
+                    <option value="kg">kg</option>
+                    <option value="g">g</option>
+                    <option value="l">l</option>
+                    <option value="ml">ml</option>
+                    <option value="pachet">pachet</option>
+                    <option value="cutie">cutie</option>
+                </select>
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Adauga in lista</button>
+</form>

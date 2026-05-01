@@ -1,0 +1,134 @@
+.filter-bar {
+    display: flex;
+    gap: .5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-bar button {
+    background: #fff;
+    border: 1px solid #cbd5e0;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    color: #4a5568;
+    font-size: .9rem;
+}
+
+.filter-bar button.active {
+    background: #2c5282;
+    color: #fff;
+    border-color: #2c5282;
+}
+
+.filter-bar button.clear {
+    margin-left: auto;
+    background: #fed7d7;
+    color: #742a2a;
+    border-color: #feb2b2;
+}
+
+.filter-bar button.clear:hover {
+    background: #feb2b2;
+}
+
+.empty {
+    text-align: center;
+    padding: 2rem;
+    color: #718096;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+ul.items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+li.item {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .85rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+li.item:last-child {
+    border-bottom: none;
+}
+
+li.item.bought .name,
+li.item.bought .qty {
+    text-decoration: line-through;
+    color: #a0aec0;
+}
+
+li.item input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.name {
+    font-weight: 500;
+    flex: 1;
+    word-break: break-word;
+}
+
+.qty {
+    color: #4a5568;
+    font-size: .85rem;
+    background: #edf2f7;
+    padding: .15rem .55rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+li.item button {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    padding: .35rem .75rem;
+    border-radius: 4px;
+    color: #4a5568;
+    font-size: .8rem;
+}
+
+li.item button.edit:hover {
+    background: #ebf8ff;
+    color: #2c5282;
+    border-color: #bee3f8;
+}
+
+li.item button.delete:hover {
+    background: #fed7d7;
+    color: #742a2a;
+    border-color: #feb2b2;
+}
+
+li.item button.save {
+    background: #2c5282;
+    color: #fff;
+    border-color: #2c5282;
+}
+
+li.item button.save:hover {
+    background: #2a4365;
+}
+
+li.item button.cancel:hover {
+    background: #edf2f7;
+}
+
+.edit-input {
+    flex: 1;
+    padding: .35rem .5rem;
+    border: 1px solid #2c5282;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px rgba(44,82,130,.15);
+}

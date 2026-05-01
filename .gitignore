@@ -1,0 +1,10 @@
+# Ignore everything at the repo root by default
+/*
+
+# Whitelist only the lab folders, INSTRUCTIUNI.md, and this file
+!/.gitignore
+!/README.md
+!/lab1/
+!/lab2/
+!/lab3/
+!/lab4/

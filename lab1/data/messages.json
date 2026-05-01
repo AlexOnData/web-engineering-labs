@@ -1,0 +1,18 @@
+[
+    {
+        "id": "msg_69f4d52200c519.34068514",
+        "name": "Test",
+        "email": "test@test.com",
+        "message": "hello",
+        "created_at": "2026-05-01 16:30:26",
+        "ip": "::1"
+    },
+    {
+        "id": "msg_69f4d54b5cfda9.37563447",
+        "name": "asd",
+        "email": "alex@gmail.com",
+        "message": "asd",
+        "created_at": "2026-05-01 16:31:07",
+        "ip": "::1"
+    }
+]
